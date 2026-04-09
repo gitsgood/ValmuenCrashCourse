@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -25,5 +26,21 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	
+	
+	
+	/**
+	 * Camera spring arm.
+	 * Used for connecting the Camera in the level to the player pawn
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MC|Camera", meta = (AllowPrivateAccess = "true"))
+	USpringArmComponent* CameraSpringArm;
+
+	/**
+	 * Camera the player pawn uses
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MC|Camera", meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<ACameraActor> Camera{nullptr};
 
 };
