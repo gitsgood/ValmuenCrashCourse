@@ -3,16 +3,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "GameFramework/Character.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
-class VALMUENCRASHCOURSE_API AMainCharacter : public AActor
+class VALMUENCRASHCOURSE_API AMainCharacter : public ACharacter
 {
 	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
+
+public:
+	// Sets default values for this character's properties
 	AMainCharacter();
 
 protected:
@@ -22,5 +22,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };
